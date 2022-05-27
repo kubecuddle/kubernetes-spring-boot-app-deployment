@@ -34,10 +34,15 @@ Example SpringBoot app tutorial to deploy to Kubernetes cluster using kind.
 12. create a secret of artifactory 
          
          kubectl create secret docker-registry regcred --docker-server=<YOUR_HOST>.jfrog.io --docker-username=<USER_NAME> --docker-password=<IDENTITY_TOKEN> --docker-email=<EMAIL_ADDRESS>
-13. create deplument
+         
+13. patch default service account 
+         
+           kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "regcred"}]}'
+           
+14. create deplument
          
          kubectl apply -f resources/deployment.yaml
-14. check staus 
+15. check status 
          
          kubectl get deployments 
          kubectl get pods
