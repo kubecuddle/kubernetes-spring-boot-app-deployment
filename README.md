@@ -2,6 +2,10 @@
 
 Example SpringBoot app tutorial to deploy to Kubernetes cluster using kind.
 
+
+Tutorial to build & run java app locally ---> containerize the image and push to [JFrog Artifactory](https://www.jfrog.com/) --> create identity key on JFrog --> Install and start `kind` cluster ---> create a namespace --> create artifactory secret in kubernetes --> create a deployment ---> check pods 
+
+
 #### pre-reqs
 
 - java 18.0
