@@ -39,7 +39,7 @@ Example SpringBoot app tutorial to deploy to Kubernetes cluster using kind.
          
            kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "regcred"}]}'
            
-14. create deplument
+14. create deployment
          
          kubectl apply -f resources/deployment.yaml
 15. check status 
