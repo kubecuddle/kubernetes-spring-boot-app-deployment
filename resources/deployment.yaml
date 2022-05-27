@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swagger-java-app-deployment
+  labels:
+    app: swagger-java-app
+  namespace: swagger-java-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: swagger-java-app
+  template:
+    metadata:
+      labels:
+        app: swagger-java-app
+    spec:
+      containers:
+      - name: swagger-java-app
+        image: kubecuddle.jfrog.io/default-docker-local/swagger-java-app:latest
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          failureThreshold: 5
+          periodSeconds: 10
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+          successThreshold: 1
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          failureThreshold: 5
+          periodSeconds: 10
+          initialDelaySeconds: 5
+          timeoutSeconds: 5      
+          successThreshold: 1  
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+           cpu: 200m 
+           memory: 256Mi
+          requests:
+            cpu: 200m
+            memory: 256Mi
+
