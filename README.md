@@ -31,7 +31,7 @@ Example SpringBoot app tutorial to deploy to Kubernetes cluster using kind.
          docker images     
 7. run the image locally and test if it works 
          
-         docker run --rm -it --entrypoint bash <image-name>
+         docker run --publish 8080:8080 swagger-java-app
 8. tag the image    
          
          docker build -t swagger-java-app:latest .
@@ -50,7 +50,7 @@ Example SpringBoot app tutorial to deploy to Kubernetes cluster using kind.
          
 13. patch default service account 
          
-           kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "regcred"}]}'
+         kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "regcred"}]}'
            
 14. create deployment
          
