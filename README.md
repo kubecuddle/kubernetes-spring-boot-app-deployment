@@ -16,7 +16,6 @@ Tutorial to build & run java app locally ---> containerize the image and push to
 - kubectl
 
 
-
 #### steps 
 
 1. clone Repo 
@@ -29,19 +28,19 @@ Tutorial to build & run java app locally ---> containerize the image and push to
          ./mvnw SpringBoot:run
 4. create a Docker image of the app locally using the `Dockerfile`
 
-         docker build -t swagger-java-app:latest .
+         docker build -t spring-boot-app:latest .
 5. check if image was created 
          
          docker images     
 7. run the image locally and test if it works 
          
-         docker run --publish 8080:8080 swagger-java-app
+         docker run --publish 8080:8080 spring-boot-app
 8. tag the image    
          
          docker build -t swagger-java-app:latest .
 9. push the image to your private artifactory
          
-         docker push <YOUR_HOST>.jfrog.io/default-docker-local/swagger-java-app:latest
+         docker push <YOUR_HOST>.jfrog.io/default-docker-local/spring-boot-app:latest
 10. run the kind cluster locally
          
          kind create cluster
