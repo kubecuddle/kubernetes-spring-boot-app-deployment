@@ -1,6 +1,4 @@
 # kubernetes-spring-boot-app-deployment
-Example SpringBoot App Deployment on kubernetes using kind
-
 
 Example SpringBoot app tutorial to deploy to Kubernetes cluster using kind.
 
