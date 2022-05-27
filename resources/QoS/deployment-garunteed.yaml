@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-boot-deployment
+  name: spring-boot-garunteed-deployment
   labels:
-    app: spring-boot-app
-  namespace: spring-boot-app
+    app: spring-boot-garunteed
+  namespace: spring-boot-garunteed
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: spring-boot-app
+      app: spring-boot-garunteed
   template:
     metadata:
       labels:
-        app: spring-boot-app
+        app: spring-boot-garunteed
     spec:
       containers:
-      - name: spring-boot-app
-        image: kubecuddle.jfrog.io/default-docker-local/spring-java-app:latest
+      - name: spring-boot-garunteed
+        image: kubecuddle.jfrog.io/default-docker-local/swagger-java-app:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:

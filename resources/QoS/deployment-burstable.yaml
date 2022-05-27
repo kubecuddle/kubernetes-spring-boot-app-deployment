@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-boot-deployment
+  name: spring-boot-burstable-deployment
   labels:
-    app: spring-boot-app
-  namespace: spring-boot-app
+    app: spring-boot-burstable
+  namespace: spring-boot-burstable
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: spring-boot-app
+      app: spring-boot-burstable
   template:
     metadata:
       labels:
-        app: spring-boot-app
+        app: spring-boot-burstable
     spec:
       containers:
-      - name: spring-boot-app
-        image: kubecuddle.jfrog.io/default-docker-local/spring-java-app:latest
+      - name: spring-boot-burstable
+        image: kubecuddle.jfrog.io/default-docker-local/swagger-java-app:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -43,8 +43,8 @@ spec:
           protocol: TCP
         resources:
           limits:
-           cpu: 200m 
-           memory: 256Mi
+           cpu: 500m 
+           memory: 500Mi
           requests:
             cpu: 200m
             memory: 256Mi

@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-boot-deployment
+  name: spring-boot-best-effort-deployment
   labels:
-    app: spring-boot-app
-  namespace: spring-boot-app
+    app: spring-boot-best-effort
+  namespace: spring-boot-best-effort
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: spring-boot-app
+      app: spring-boot-best-effort
   template:
     metadata:
       labels:
-        app: spring-boot-app
+        app: spring-boot-best-effort
     spec:
       containers:
-      - name: spring-boot-app
-        image: kubecuddle.jfrog.io/default-docker-local/spring-java-app:latest
+      - name: spring-boot-best-effort
+        image: kubecuddle.jfrog.io/default-docker-local/swagger-java-app:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -41,11 +41,4 @@ spec:
         - containerPort: 8080
           name: http
           protocol: TCP
-        resources:
-          limits:
-           cpu: 200m 
-           memory: 256Mi
-          requests:
-            cpu: 200m
-            memory: 256Mi
 
