@@ -2,6 +2,16 @@
 
 Example SpringBoot app tutorial to deploy to Kubernetes cluster using kind.
 
+pre-reqs
+
+- java 18.0
+- maven
+- docker
+- kind
+- jfrog artifactory account 
+- kubectl
+
+
 1. clone Repo 
 2. cd into the directory
 3. build SpringBoot maven app using following command 
